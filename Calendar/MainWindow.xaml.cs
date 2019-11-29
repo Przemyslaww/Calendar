@@ -30,6 +30,7 @@ namespace Calendar
             InitializeComponent();
             this.appControler = AppControler.getInstance();
             CreateMonth();
+            HighlightCurrentDay();
         }
 
         public void GetTime()
@@ -82,11 +83,16 @@ namespace Calendar
                     }
                     if(day <= daysInMonth)
                     {
-                        Button btn = new Button();
-                        btn.FontSize = 20;
-                        btn.FontWeight = FontWeights.Light;
-                        btn.Name = "Button" +(row +1)+ (col+1);
-                        btn.Content = day;
+                        Button btn = new Button
+                        {
+                            FontSize = 20,
+                            FontWeight = FontWeights.Light,
+                            Background = Brushes.White,
+                            Foreground = Brushes.Purple,
+                            Name = "Button" + (row + 1) + (col + 1),
+                            Content = day,
+                            Margin = new Thickness (1,1,1,1)
+                        };
                         btn.Click += CalendarClick;
                         Grid.SetRow(btn, row+1);
                         Grid.SetColumn(btn, col+1);
@@ -108,6 +114,18 @@ namespace Calendar
 
         }
 
+        private void HighlightCurrentDay()
+        {
+            foreach(Button b in dayList)
+            {
+                if(b.Content.ToString() == myDate.Day.ToString())
+                {
+                    //b.Background = Brushes.Lavender;
+                    b.BorderBrush = Brushes.MediumPurple;
+                    b.BorderThickness = new Thickness(5,5,5,5);
+                }
+            }
+        }
 
         private void CalendarClick(object sender, RoutedEventArgs e)
         {

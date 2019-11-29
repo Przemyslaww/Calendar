@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="DayWindow" Height="320" Width="320">
-    <Grid >
+        Title=""
+        Height="420"
+        Width="420"
+        WindowStyle="ToolWindow">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FFA22D98" Offset="1"/>
+                <GradientStop Color="#FFFFEC31"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
@@ -22,9 +31,28 @@
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
-        <Label Name="dayLabel" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Dzień</Label>
-        <ScrollViewer Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="toDoList" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto">
+        <Label 
+            Name="dayLabel" 
+            Grid.Row="1" 
+            Grid.Column="2"          
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center"
+            Background="Transparent"
+            Foreground="BlueViolet"
+            FontSize="20"
+            FontStyle="Italic">
+            Dzień</Label>
+        <ScrollViewer
+            Grid.Row="2" 
+            Grid.ColumnSpan="3" 
+            Grid.Column="1" 
+            VerticalScrollBarVisibility="Auto">
+            <StackPanel 
+                    x:Name="toDoList" 
+                    HorizontalAlignment="Stretch" 
+                    Height="auto" 
+                    VerticalAlignment="Top" 
+                    Width="auto">
                 <!--Miejsce na taski-->
             </StackPanel>
         </ScrollViewer>
@@ -34,8 +62,26 @@
             Grid.ColumnSpan="2"
             x:Name="enteredText"
             VerticalAlignment="Center" 
-            HorizontalContentAlignment="Center" />
-        <Button Grid.Row="3" Grid.Column="3" Width="80" Height="20" Click="AddTask" VerticalAlignment="Center" HorizontalAlignment="Center">Dodaj</Button>
-
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Height="25" 
+            FontSize="15"
+            Background="Transparent"
+            Foreground="White"
+            BorderBrush="White"
+            BorderThickness="2"/>
+        <Button 
+            Grid.Row="3" 
+            Grid.Column="3" 
+            Width="80" 
+            Height="25" 
+            Click="AddTask" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center" 
+            BorderBrush="White"
+            BorderThickness="2"
+            Background="Transparent"
+            Foreground="White">
+            Dodaj</Button>
     </Grid>
 </Window>
