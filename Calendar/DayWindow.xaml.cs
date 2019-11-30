@@ -20,20 +20,34 @@ namespace Calendar
     {
         private AppControler appControler;
         private MainWindow mainWindow;
+        private string date;
 
-        public DayWindow(string day, MainWindow mw)
+        public DayWindow(string d, MainWindow mw)
         {
             InitializeComponent();
             this.appControler = AppControler.getInstance();
             this.mainWindow = mw;
-            dayLabel.Content = day;
+            dayLabel.Content = d;
+            date = d;
+            UpdateTasksInThisDay();
         }
 
+        private void UpdateTasksInThisDay()
+        {
+            foreach(TaskModel tm in AppControler.LoadTasksForDay(date))
+            {
+                toDoList.Children.Add(new TaskControl(toDoList, tm.taskText, Convert.ToBoolean(tm.isChecked) ));
+            }
+        }
 
         private void AddTask(object sender, RoutedEventArgs e)
         {
+            AppControler.CreateTask(enteredText.Text, date);
             toDoList.Children.Add(new TaskControl(toDoList, enteredText.Text));
+
             enteredText.Text = "";
         }
+
+
     }
 }

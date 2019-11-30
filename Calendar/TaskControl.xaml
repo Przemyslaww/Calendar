@@ -32,7 +32,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Name="Row"/>
             </Grid.RowDefinitions>
-            <CheckBox 
+            <CheckBox
+                x:Name="checkBox"
                 Grid.Column="0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"/>

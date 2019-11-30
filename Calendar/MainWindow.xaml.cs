@@ -21,7 +21,7 @@ namespace Calendar
         private AppControler appControler;
         private List<Button> dayList = new List<Button>();
 
-        private DateTime myDate;
+        public DateTime myDate;
         private int daysInMonth;
         private DayOfWeek firstDayOfWeek;
 
@@ -31,6 +31,49 @@ namespace Calendar
             this.appControler = AppControler.getInstance();
             CreateMonth();
             HighlightCurrentDay();
+            UpdateDays();
+        }
+
+
+        private Brush GetColor(int value)
+        {
+            switch(value)
+            {
+                case 0:
+                    return Brushes.Transparent;
+                case 1:
+                    return Brushes.LightGreen;
+                case 2:
+                    return Brushes.Green;
+                case 3:
+                    return Brushes.DarkGreen;
+                case 4:
+                    return Brushes.LightYellow;
+                case 5:
+                    return Brushes.Yellow;
+                case 6:
+                    return Brushes.Orange;
+                case 7:
+                    return Brushes.OrangeRed;
+                default:
+                    return Brushes.Red;
+            }
+        }
+
+        private void UpdateDays()
+        {
+            foreach(Button b in dayList)
+            {
+                string day = b.Content.ToString();
+                string date = day +"."+ myDate.Month.ToString()+"."+ myDate.Year.ToString();
+
+                //zapytanie do bazy
+                int taskCount = AppControler.TasksForDay(date);
+
+                //b.BorderThickness = new Thickness(5, 5, 5, 5);
+                //b.BorderBrush = GetColor(taskCount);
+                b.Background = GetColor(taskCount);
+            }
         }
 
         public void GetTime()
@@ -120,9 +163,10 @@ namespace Calendar
             {
                 if(b.Content.ToString() == myDate.Day.ToString())
                 {
-                    //b.Background = Brushes.Lavender;
-                    b.BorderBrush = Brushes.MediumPurple;
+                    //b.Background = Brushes.MediumPurple;
+                    //b.Foreground = Brushes.White;
                     b.BorderThickness = new Thickness(5,5,5,5);
+                    b.BorderBrush = Brushes.MediumPurple;
                 }
             }
         }
@@ -132,26 +176,18 @@ namespace Calendar
             string day;
             Button button = sender as Button;
             day = button.Content.ToString();
+            string clickedDay = day + "." + myDate.Month.ToString() + "." + myDate.Year.ToString();
 
-            //int row = (int)button.GetValue(Grid.RowProperty);
-            //int column = (int)button.GetValue(Grid.ColumnProperty);
-            DayWindow dayWindow = new DayWindow(day, this);
+            DayWindow dayWindow = new DayWindow(clickedDay, this);
             dayWindow.Closed += DayWindowClosed;
             dayWindow.Show();
 
         }
 
         public void DayWindowClosed(object sender, System.EventArgs e)
-        {
-            MessageBox.Show(string.Format("Zamykanie okna dnia"));
-            updateDayInMonth();
+        {   
+            UpdateDays();
         }
 
-        public void updateDayInMonth()
-        {
-            //z appControlera wywołać metode zapytania do bazy danych.
-            //odebrane dene przertworzyć tak by zupdatować buttony w kalendarzu miesiąca
-            MessageBox.Show(string.Format("Zapytanie do bazy o wszystkie dni"));
-        }
     }
 }

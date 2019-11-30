@@ -12,9 +12,8 @@ namespace Calendar
 
         public string taskText { get; set; }
 
-        public bool isChecked { get; set; }
+        public int isChecked { get; set; }
 
-        public int dayID { get; set; }
-
+        public string date { get; set; }
     }
 }

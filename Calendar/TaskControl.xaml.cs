@@ -30,12 +30,12 @@ namespace Calendar
             textBlock.Text = taskText;
         }
 
-
-        //do poprawy
-        private void SettingKeybordFocus(IInputElement ie)
+        public TaskControl(StackPanel list, string taskText, bool isChecked)
         {
-            Keyboard.ClearFocus();
-            Keyboard.Focus(ie);
+            InitializeComponent();
+            parent = list;
+            textBlock.Text = taskText;
+            checkBox.IsChecked = isChecked;
         }
 
         private void UpdateTaskText(object sender, RoutedEventArgs e)
