@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projekty Visual Studio 2017\Calendar\Calendar\App.xaml
-3-544747039
+41036961175
 12085291099
-131346956851
+14883669127
 16-1582208260
-DayWindow.xaml;MainWindow.xaml;TaskControl.xaml;
+DayControl.xaml;DayWindow.xaml;MainWindow.xaml;TaskControl.xaml;
 
 False
 

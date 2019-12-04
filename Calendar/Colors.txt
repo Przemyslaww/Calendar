@@ -1,0 +1,3 @@
+Base background color: #121212
+Primary color (Dark Theme): #BA68C8
+Primary color (Light Theme): #8E24AA
