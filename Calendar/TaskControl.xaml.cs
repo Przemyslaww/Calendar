@@ -40,16 +40,17 @@ namespace Calendar
             dayWindow = window;
         }
 
+        
         private void UpdateTaskText(object sender, RoutedEventArgs e)
         {
-            // TO DO Later
+            //TODO    
+            dayWindow.UpdateTask(this);
         }
 
         private void DeleteTask(object sender, RoutedEventArgs e)
         {
-            dayWindow.RemoveTask(this.textBlock.Text);
             parent.Children.Remove(this);
-            //MessageBox.Show(string.Format("Kliknięto delete"));
+            dayWindow.RemoveTask(this.textBlock.Text);
         }
     }
 }

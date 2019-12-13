@@ -21,6 +21,8 @@ namespace Calendar
         private AppControler appControler;
         private MainWindow mainWindow;
         private string date;
+        private bool isEdited;
+        private TaskControl editControl;
 
         public DayWindow(string d, MainWindow mw)
         {
@@ -29,11 +31,10 @@ namespace Calendar
             this.mainWindow = mw;
             dayLabel.Content = d;
             date = d;
+            isEdited = false;
             UpdateTasksInThisDay();
         }
 
-
- 
         private void UpdateTasksInThisDay()
         {
             foreach(TaskModel tm in AppControler.LoadTasksForDay(date))
@@ -42,17 +43,31 @@ namespace Calendar
             }
         }
 
-        //TODO
         public void RemoveTask(string text)
         {
             AppControler.RemoveTask( text ,date);
         }
 
+        public void UpdateTask(TaskControl taskControl)
+        {
+            isEdited = true;
+            editControl = taskControl;
+            enteredText.Text = taskControl.textBlock.Text;
+        }
+
         private void AddTask(object sender, RoutedEventArgs e)
         {
-            AppControler.CreateTask(enteredText.Text, date);
-            toDoList.Children.Add(new TaskControl(toDoList, enteredText.Text, this));
-
+            if(isEdited)
+            {
+                isEdited = false;
+                AppControler.UpdateTask(editControl.textBlock.Text, enteredText.Text, date);
+                editControl.textBlock.Text = enteredText.Text;
+            }
+            else
+            {
+                toDoList.Children.Add(new TaskControl(toDoList, enteredText.Text, this));
+                AppControler.CreateTask(enteredText.Text, date);
+            }
             enteredText.Text = "";
         }
 

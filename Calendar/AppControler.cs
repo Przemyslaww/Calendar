@@ -52,9 +52,7 @@ namespace Calendar
                 taskText = text,
                 isChecked = 0
             };
-
             SaveTask(tm);
-
         }
 
         public static void SaveTask(TaskModel task)
@@ -79,12 +77,17 @@ namespace Calendar
             }
         }
 
-        //TO DO (fix)
-        public static void UpdateTask(TaskModel task)
+        //TO DO (is checked)
+        public static void UpdateTask(string oldText, string newText, string date)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("UPDATE Tasks set isChecked = @isChecked where id = @id", task);
+                string sql = "UPDATE Tasks set taskText = @newText where date = @date and taskText = @oldText";
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("oldText", oldText);
+                dynamicParameters.Add("newText", newText);
+                dynamicParameters.Add("date", date);
+                cnn.Execute(sql, dynamicParameters);
             }
         }
 

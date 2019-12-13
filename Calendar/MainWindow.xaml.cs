@@ -40,23 +40,23 @@ namespace Calendar
             switch(value)
             {
                 case 0:
-                    return Brushes.Transparent;
+                    return "#00ffffff".ToBrush();
                 case 1:
-                    return Brushes.LightGreen;
+                    return "#80ffffe0".ToBrush();
                 case 2:
-                    return Brushes.Green;
+                    return "#8090ee90".ToBrush();
                 case 3:
-                    return Brushes.DarkGreen;
+                    return "#80008000".ToBrush();
                 case 4:
-                    return Brushes.LightYellow;
+                    return "#80006400".ToBrush();
                 case 5:
-                    return Brushes.Yellow;
+                    return "#80ffff00".ToBrush();
                 case 6:
-                    return Brushes.Orange;
+                    return "#80ffa500".ToBrush();
                 case 7:
-                    return Brushes.OrangeRed;
+                    return "#80ff4500".ToBrush();
                 default:
-                    return Brushes.Red;
+                    return "#80ff0000".ToBrush();
             }
         }
 
@@ -70,9 +70,8 @@ namespace Calendar
                 //zapytanie do bazy
                 int taskCount = AppControler.TasksForDay(date);
 
-                b.BorderThickness = new Thickness(taskCount, taskCount, taskCount, taskCount);
+                b.BorderThickness = new Thickness(1, 4, 1, 1);
                 b.BorderBrush = GetColor(taskCount);
-                //b.Background = GetColor(taskCount);
             }
         }
 
@@ -169,7 +168,8 @@ namespace Calendar
             {
                 if(b.Content.ToString() == myDate.Day.ToString())
                 {
-                    b.Background = Brushes.MediumPurple;
+                    //b.Background = Brushes.MediumPurple;
+                    b.Background = "#1affffff".ToBrush();
                     b.Foreground = Brushes.White;
                     //b.BorderThickness = new Thickness(5,5,5,5);
                     //b.BorderBrush = Brushes.MediumPurple;

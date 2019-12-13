@@ -14,7 +14,7 @@
              Margin="2 0 2 4"
              d:DesignHeight="35" d:DesignWidth="300">
 
-    <Border  CornerRadius="8" Padding="5"  BorderBrush="Transparent" Background="#BA68C8" BorderThickness="0">
+    <Border  CornerRadius="8" Padding="5"  BorderBrush="Transparent" Background="#2fBA68C8" BorderThickness="0">
         <Border.Effect>
             <DropShadowEffect Color="#BA68C8" BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="3"/>
         </Border.Effect>
@@ -41,6 +41,7 @@
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Left"
                 FontSize="15"
+                PreviewMouseDown="UpdateTaskText"
                 Foreground="White"/>
             <Button 
                 Width="24" 

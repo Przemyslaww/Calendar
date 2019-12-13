@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="Calendarium Przemka" 
         Height="400" 
-        Width="600"
-        WindowStyle="ToolWindow">
+        Width="600">
     <Grid Name="calendarGrid" >
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
