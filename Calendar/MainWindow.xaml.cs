@@ -70,9 +70,9 @@ namespace Calendar
                 //zapytanie do bazy
                 int taskCount = AppControler.TasksForDay(date);
 
-                //b.BorderThickness = new Thickness(5, 5, 5, 5);
-                //b.BorderBrush = GetColor(taskCount);
-                b.Background = GetColor(taskCount);
+                b.BorderThickness = new Thickness(taskCount, taskCount, taskCount, taskCount);
+                b.BorderBrush = GetColor(taskCount);
+                //b.Background = GetColor(taskCount);
             }
         }
 
@@ -83,6 +83,26 @@ namespace Calendar
             DateTime firstDay = new DateTime(myDate.Year, myDate.Month, 1);
             // sun - 0 sat - 6
             firstDayOfWeek = firstDay.DayOfWeek;
+        }
+
+        private void CreateButton(int col, int row, int day)
+        {
+
+            Button btn = new Button
+            {
+                FontSize = 20,
+                FontWeight = FontWeights.Light,
+                Background = Brushes.Transparent,
+                Foreground = "#ffdcfd".ToBrush(),
+                Name = "Button" + (row + 1) + (col + 1),
+                Content = day,
+                Margin = new Thickness(1, 1, 1, 1)
+            };
+            btn.Click += CalendarClick;
+            Grid.SetRow(btn, row + 1);
+            Grid.SetColumn(btn, col + 1);
+            calendarGrid.Children.Add(btn);
+            dayList.Add(btn);
         }
 
         public void CreateMonth()
@@ -126,21 +146,7 @@ namespace Calendar
                     }
                     if(day <= daysInMonth)
                     {
-                        Button btn = new Button
-                        {
-                            FontSize = 20,
-                            FontWeight = FontWeights.Light,
-                            Background = Brushes.White,
-                            Foreground = Brushes.Purple,
-                            Name = "Button" + (row + 1) + (col + 1),
-                            Content = day,
-                            Margin = new Thickness (1,1,1,1)
-                        };
-                        btn.Click += CalendarClick;
-                        Grid.SetRow(btn, row+1);
-                        Grid.SetColumn(btn, col+1);
-                        calendarGrid.Children.Add(btn);
-                        dayList.Add(btn);
+                        CreateButton(col, row, day);
                         day++;
                     }
                     else
@@ -163,10 +169,10 @@ namespace Calendar
             {
                 if(b.Content.ToString() == myDate.Day.ToString())
                 {
-                    //b.Background = Brushes.MediumPurple;
-                    //b.Foreground = Brushes.White;
-                    b.BorderThickness = new Thickness(5,5,5,5);
-                    b.BorderBrush = Brushes.MediumPurple;
+                    b.Background = Brushes.MediumPurple;
+                    b.Foreground = Brushes.White;
+                    //b.BorderThickness = new Thickness(5,5,5,5);
+                    //b.BorderBrush = Brushes.MediumPurple;
                 }
             }
         }

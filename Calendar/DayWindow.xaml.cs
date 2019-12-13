@@ -32,18 +32,26 @@ namespace Calendar
             UpdateTasksInThisDay();
         }
 
+
+ 
         private void UpdateTasksInThisDay()
         {
             foreach(TaskModel tm in AppControler.LoadTasksForDay(date))
             {
-                toDoList.Children.Add(new TaskControl(toDoList, tm.taskText, Convert.ToBoolean(tm.isChecked) ));
+                toDoList.Children.Add(new TaskControl(toDoList, tm.taskText, Convert.ToBoolean(tm.isChecked),this ));
             }
+        }
+
+        //TODO
+        public void RemoveTask(string text)
+        {
+            AppControler.RemoveTask( text ,date);
         }
 
         private void AddTask(object sender, RoutedEventArgs e)
         {
             AppControler.CreateTask(enteredText.Text, date);
-            toDoList.Children.Add(new TaskControl(toDoList, enteredText.Text));
+            toDoList.Children.Add(new TaskControl(toDoList, enteredText.Text, this));
 
             enteredText.Text = "";
         }

@@ -68,13 +68,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppControler.cs" />
+    <Compile Include="DayControl.xaml.cs">
+      <DependentUpon>DayControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DayWindow.xaml.cs">
       <DependentUpon>DayWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Extensions.cs" />
     <Compile Include="TaskControl.xaml.cs">
       <DependentUpon>TaskControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="TaskModel.cs" />
+    <Page Include="DayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

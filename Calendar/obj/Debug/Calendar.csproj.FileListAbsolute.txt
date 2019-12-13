@@ -25,3 +25,5 @@ D:\Projekty Visual Studio 2017\Calendar\Calendar\bin\Debug\System.Data.SQLite.xm
 D:\Projekty Visual Studio 2017\Calendar\Calendar\bin\Debug\System.Data.SQLite.dll.config
 D:\Projekty Visual Studio 2017\Calendar\Calendar\obj\Debug\Calendar_Content.g.cs
 D:\Projekty Visual Studio 2017\Calendar\Calendar\obj\Debug\Calendar.csproj.CopyComplete
+D:\Projekty Visual Studio 2017\Calendar\Calendar\obj\Debug\DayControl.g.cs
+D:\Projekty Visual Studio 2017\Calendar\Calendar\obj\Debug\DayControl.baml

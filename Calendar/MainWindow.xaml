@@ -12,8 +12,8 @@
     <Grid Name="calendarGrid" >
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                <GradientStop Color="#FFA22D98" Offset="1"/>
-                <GradientStop Color="#FFFFEC31"/>
+                <GradientStop Color="#FFA22D98" Offset="3"/>
+                <GradientStop Color="#121212"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
@@ -37,31 +37,31 @@
             <RowDefinition  Height="14"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Foreground="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <TextBlock Foreground="#ffdcfd" HorizontalAlignment="Center" VerticalAlignment="Center" 
                FontSize="14" FontWeight="light" 
                Grid.Column="1" Grid.Row="0" Height="18" Margin="28,2,28,5" Width="25">Pon</TextBlock>
 
-        <TextBlock Foreground="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <TextBlock Foreground="#ffdcfd" HorizontalAlignment="Center" VerticalAlignment="Center" 
                FontSize="14" FontWeight="light" 
                Grid.Column="2" Grid.Row="0" Height="18" Margin="30,2,30,5" Width="20">Wt</TextBlock>
 
-        <TextBlock Foreground="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <TextBlock Foreground="#ffdcfd" HorizontalAlignment="Center" VerticalAlignment="Center" 
                FontSize="14" FontWeight="light" 
                Grid.Column="3" Grid.Row="0" Height="18" Margin="34,2,34,5" Width="13">Śr</TextBlock>
 
-        <TextBlock Foreground="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <TextBlock Foreground="#ffdcfd" HorizontalAlignment="Center" VerticalAlignment="Center" 
                FontSize="14" FontWeight="light" 
                Grid.Column="4" Grid.Row="0" Height="18" Margin="27,2,27,5" Width="26">Czw</TextBlock>
 
-        <TextBlock Foreground="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <TextBlock Foreground="#ffdcfd" HorizontalAlignment="Center" VerticalAlignment="Center" 
                FontSize="14" FontWeight="light" 
                Grid.Column="5" Grid.Row="0" Height="18" Margin="34,2,34,5" Width="13">Pi</TextBlock>
 
-        <TextBlock Foreground="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <TextBlock Foreground="#ffdcfd" HorizontalAlignment="Center" VerticalAlignment="Center" 
                FontSize="14" FontWeight="light" 
                Grid.Column="6" Grid.Row="0" Height="18" Margin="27,2,27,5" Width="26">Sob</TextBlock>
 
-        <TextBlock Foreground="BlueViolet" HorizontalAlignment="Center" VerticalAlignment="Center" 
+        <TextBlock Foreground="#ffdcfd" HorizontalAlignment="Center" VerticalAlignment="Center" 
                FontSize="14" FontWeight="light" 
                Grid.Column="7" Grid.Row="0" Height="18" Margin="29,2,29,5" Width="23">Nie</TextBlock>
 

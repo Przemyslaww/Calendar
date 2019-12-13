@@ -20,22 +20,24 @@ namespace Calendar
     /// </summary>
     public partial class TaskControl : UserControl
     {
-
+        private DayWindow dayWindow;
         private StackPanel parent;
 
-        public TaskControl(StackPanel list, string taskText)
+        public TaskControl(StackPanel list, string taskText, DayWindow window)
         {
             InitializeComponent();
             parent = list;
             textBlock.Text = taskText;
+            dayWindow = window;
         }
 
-        public TaskControl(StackPanel list, string taskText, bool isChecked)
+        public TaskControl(StackPanel list, string taskText, bool isChecked, DayWindow window)
         {
             InitializeComponent();
             parent = list;
             textBlock.Text = taskText;
             checkBox.IsChecked = isChecked;
+            dayWindow = window;
         }
 
         private void UpdateTaskText(object sender, RoutedEventArgs e)
@@ -45,6 +47,7 @@ namespace Calendar
 
         private void DeleteTask(object sender, RoutedEventArgs e)
         {
+            dayWindow.RemoveTask(this.textBlock.Text);
             parent.Children.Remove(this);
             //MessageBox.Show(string.Format("Kliknięto delete"));
         }

@@ -15,7 +15,7 @@ namespace Calendar
         private static AppControler instance;
 
         private AppControler() {}
-
+         
         public static AppControler getInstance()
         {
             if (instance == null)
@@ -61,7 +61,30 @@ namespace Calendar
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
+
                 cnn.Execute("INSERT INTO Tasks (taskText, isChecked, date) values (@taskText, @isChecked, @date)", task);
+            }
+        }
+
+        public static void RemoveTask(string text, string date )
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string sql = "DELETE FROM Tasks where taskText = @text and date= @date;";
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("date", date);
+                dynamicParameters.Add("text", text);
+
+                cnn.Execute(sql, dynamicParameters);
+            }
+        }
+
+        //TO DO (fix)
+        public static void UpdateTask(TaskModel task)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("UPDATE Tasks set isChecked = @isChecked where id = @id", task);
             }
         }
 

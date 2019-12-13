@@ -12,8 +12,8 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                <GradientStop Color="#FFA22D98" Offset="1"/>
-                <GradientStop Color="#FFFFEC31"/>
+                <GradientStop Color="#FFA22D98" Offset="3"/>
+                <GradientStop Color="#121212"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
@@ -38,7 +38,7 @@
             VerticalAlignment="Center" 
             HorizontalAlignment="Center"
             Background="Transparent"
-            Foreground="BlueViolet"
+            Foreground="#ffdcfd"
             FontSize="20"
             FontStyle="Italic">
             Dzień</Label>
